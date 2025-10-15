@@ -1,0 +1,342 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Unbounded:wght@400;700&display=swap");
+
+/*=============== VARIABLES ===============*/
+:root {
+  --first-color: hsl(260, 100%, 65%); /* purple-blue neon */
+  --first-color-alt: hsl(230, 100%, 70%);
+  --hover-color: hsl(230, 100%, 80%);
+  --title-color: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 85%);
+  --white-color: hsl(0, 0%, 100%);
+  --border-color: hsla(230, 100%, 80%, 0.2);
+  --body-color: hsl(230, 25%, 8%);
+  --glass-color: hsla(230, 25%, 15%, 0.6);
+
+  --body-font: "Montserrat", sans-serif;
+  --second-font: "Unbounded", sans-serif;
+  --bigger-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .875rem;
+
+  --font-regular: 400;
+  --font-semi-bold: 600;
+}
+
+
+/*=============== SWIPER FIXES FOR LOGIN PAGE ===============*/
+
+/* Prevent unwanted scrollbars from Swiper overflow */
+body,
+html {
+  overflow-x: hidden;
+}
+
+/* Restrict Swiper width to stay inside login container */
+.login__swiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+/* Override default Swiper theme color (use your neon color) */
+:root {
+  --swiper-theme-color: var(--first-color);
+}
+
+/* Fix pagination bullets alignment and color */
+.swiper-pagination-bullet {
+  background-color: hsla(0, 0%, 100%, 0.5);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--first-color);
+  transform: scale(1.3);
+}
+
+/* Remove unnecessary margin from Swiper wrapper */
+.swiper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure no color leaks or background from Swiper slides */
+.swiper-slide {
+  background: transparent !important;
+}
+
+/* Hide scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body, input, button {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  background: var(--body-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/*=============== BACKGROUND VIDEO ===============*/
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.4) saturate(1.3);
+}
+
+/*=============== CONTAINER ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/*=============== LOGIN ===============*/
+.login {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.login__container {
+  display: grid;
+  grid-template-columns: 592px 340px;
+  column-gap: 5rem;
+  width: 1110px;
+  height: 650px;
+  background: var(--glass-color);
+  backdrop-filter: blur(16px);
+  border: 2px solid var(--border-color);
+  border-radius: 2.5rem;
+  box-shadow: 0 0 40px rgba(88, 0, 255, 0.3);
+  padding: 1rem;
+}
+
+/*=============== SWIPER AREA ===============*/
+.login__swiper {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  border-radius: 2rem;
+}
+
+.login__swiper-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.login__swiper-data, .login__swiper-social {
+  position: absolute;
+  z-index: 10;
+  color: var(--white-color);
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.login__swiper-data {
+  top: 5rem;
+  left: 3rem;
+}
+
+.login__swiper-title {
+  font-family: var(--second-font);
+  font-size: var(--bigger-font-size);
+}
+
+.login__swiper-social {
+  left: 3rem;
+  bottom: 4rem;
+}
+
+.login__swiper-links {
+  display: flex;
+  gap: .75rem;
+}
+
+.login__swiper-link {
+  font-size: 1.5rem;
+  color: var(--white-color);
+  transition: transform .3s, color .3s;
+}
+
+.login__swiper-link:hover {
+  color: var(--hover-color);
+  transform: translateY(-.25rem);
+}
+
+/*=============== LOGIN FORM ===============*/
+.login__data {
+  text-align: center;
+  color: var(--white-color);
+}
+
+.login__title {
+  font-family: var(--second-font);
+  font-size: var(--bigger-font-size);
+  color: var(--white-color);
+  margin-bottom: 1rem;
+}
+
+.login__description {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+.login__button,
+.login__button-border {
+  width: 100%;
+  padding: 1rem;
+  border-radius: .5rem;
+  font-weight: var(--font-semi-bold);
+  cursor: pointer;
+  transition: all .4s ease;
+  font-size: var(--normal-font-size);
+}
+
+.login__button {
+  background: linear-gradient(90deg, var(--first-color), var(--first-color-alt));
+  color: var(--white-color);
+  box-shadow: 0 0 20px rgba(120, 0, 255, 0.5);
+}
+
+.login__button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(120, 0, 255, 0.8);
+}
+
+.login__button-border {
+  background: transparent;
+  color: var(--white-color);
+  border: 2px solid var(--border-color);
+}
+
+.login__button-border:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+/*=============== INPUTS ===============*/
+.login__box {
+  position: relative;
+}
+
+.login__input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: .5rem;
+  background: rgba(255,255,255,0.05);
+  border: 2px solid var(--border-color);
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+  transition: border .3s, box-shadow .3s;
+}
+
+.login__input::placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.login__input:focus {
+  border-color: var(--first-color);
+  box-shadow: 0 0 10px var(--first-color);
+}
+
+.login__box i {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--hover-color);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/*=============== OTHERS ===============*/
+.login__forgot {
+  display: block;
+  margin: 1rem 0;
+  text-align: right;
+  color: var(--hover-color);
+  font-size: var(--small-font-size);
+}
+
+.login__line {
+  text-align: center;
+  color: var(--text-color);
+  position: relative;
+  margin: 1rem 0;
+}
+
+.login__line::before,
+.login__line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.login__line::before {
+  left: 0;
+}
+
+.login__line::after {
+  right: 0;
+}
+
+.login__switch {
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+}
+
+.login__sign {
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+  transition: color .3s;
+}
+
+.login__sign:hover {
+  color: var(--hover-color);
+}
+
+/*=============== RESPONSIVE ===============*/
+@media screen and (max-width: 1000px) {
+  .login__container {
+    grid-template-columns: 1fr;
+    height: auto;
+    width: 90%;
+    backdrop-filter: blur(10px);
+  }
+
+  .login__swiper {
+    display: none;
+  }
+}
